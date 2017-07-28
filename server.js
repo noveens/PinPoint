@@ -39,11 +39,16 @@ app.get("/sendLocation", function(request, response) {
    var x = request.query.x;
    var y = request.query.y;
 
-   fs.appendFile('Location.csv', userId + ',' + ',' + x + ',' + y + ',' + problem + '\n', function(err) {
+   fs.appendFile('Location.csv', userId + ',' + x + ',' + y + ',' + problem + '\n', function(err) {
       if(err) {
            response.end("0");
       } else {
            response.send("1");
       }
    });
+});
+
+var port = process.env.PORT || 1234;
+
+var server = app.listen(port, function() {
 });
