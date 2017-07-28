@@ -6,7 +6,7 @@ app.get("/login", function(request, response) {
     var username = request.query.username;
     var password = request.query.password;
 
-    fs.readFile('users.csv', function(err, data) {
+    fs.readFile('Users.csv', function(err, data) {
         var users = data.toString().split('\n');
         var flag = 0;
         for(var i=0;i<users.length;i++) {
@@ -48,7 +48,7 @@ app.get("/sendLocation", function(request, response) {
    });
 });
 
-var port = process.env.PORT || 1234;
+var port = process.env.PORT || 8080;
 
 var server = app.listen(port, function() {
 });
